@@ -62,13 +62,6 @@ const About = () => {
                 <span>Suporte contínuo e manutenção</span>
               </div>
             </div>
-            
-            <div className="about-action">
-              <a href="#contact" className="btn btn-primary">
-                Conhecer nossa equipe
-                <ArrowRight size={16} />
-              </a>
-            </div>
           </div>
           
 

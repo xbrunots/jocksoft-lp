@@ -1,0 +1,15 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="4" fill="#2563eb"/>
+  <!-- Logo JockBase com símbolo de database -->
+  <g transform="translate(8, 6)">
+    <!-- Símbolo de database -->
+    <g fill="#60a5fa">
+      <ellipse cx="12" cy="8" rx="8" ry="3"/>
+      <rect x="4" y="8" width="16" height="12" rx="2"/>
+      <ellipse cx="12" cy="20" rx="8" ry="3"/>
+      <ellipse cx="12" cy="14" rx="8" ry="2"/>
+    </g>
+    <!-- Texto JOCKBASE -->
+    <text x="26" y="16" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">JOCKBASE</text>
+  </g>
+</svg>

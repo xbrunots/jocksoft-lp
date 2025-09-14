@@ -1,0 +1,15 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="4" fill="#0066CC"/>
+  <!-- Governo SP com brasão simplificado -->
+  <g transform="translate(8, 5)">
+    <!-- Brasão simplificado -->
+    <g>
+      <ellipse cx="12" cy="15" rx="8" ry="10" fill="#FFCC00" stroke="white" stroke-width="1"/>
+      <path d="M8 12 L16 12 L14 18 L10 18 Z" fill="#0066CC"/>
+      <circle cx="12" cy="15" r="2" fill="white"/>
+    </g>
+    <!-- Texto GOVERNO SP -->
+    <text x="25" y="12" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">GOVERNO</text>
+    <text x="25" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFCC00">SÃO PAULO</text>
+  </g>
+</svg>

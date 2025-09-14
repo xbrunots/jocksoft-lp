@@ -1,0 +1,15 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="4" fill="#0066CC"/>
+  <!-- Logo NTT DATA baseado no design real -->
+  <g transform="translate(15, 6)">
+    <!-- NTT -->
+    <text x="0" y="12" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">NTT</text>
+    <!-- Separador -->
+    <rect x="30" y="2" width="1" height="10" fill="white"/>
+    <!-- DATA -->
+    <text x="35" y="12" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">DATA</text>
+    <!-- Elemento gráfico característico -->
+    <rect x="0" y="18" width="75" height="2" fill="#00A0E6"/>
+    <rect x="0" y="22" width="60" height="2" fill="#FF6600"/>
+  </g>
+</svg>

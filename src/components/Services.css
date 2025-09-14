@@ -192,7 +192,8 @@
 .service-card:hover .service-icon {
   background: var(--accent-color);
   color: white;
-  animation: pulse 2s infinite;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
 }
 
 /* Ícone do Venture Builder com cor azul e animação */
@@ -205,7 +206,8 @@
 .service-card.service-red:hover .service-icon {
   background: #00d8ff;
   color: white;
-  animation: pulse 2s infinite;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
 }
 
 @keyframes pulse {

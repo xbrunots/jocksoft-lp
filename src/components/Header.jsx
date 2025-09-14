@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Sun, Moon } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import './Header.css';
+import logo from '../assets/logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const { theme, toggleTheme, isDark } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,10 +75,7 @@ const Header = () => {
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <div className="logo-icon" aria-hidden="true">
-              <div className="logo-shape"></div>
-            </div>
-            <span className="logo-text">JockSoft</span>
+            <img src={logo} alt="JockSoft" className="logo-image" />
           </div>
           
           <nav 
@@ -113,7 +109,7 @@ const Header = () => {
               className={activeSection === 'portfolio' ? 'active' : ''}
               aria-current={activeSection === 'portfolio' ? 'page' : undefined}
             >
-              Portfolio
+              Cases
             </a>
             <a 
               href="#contact" 
@@ -125,14 +121,6 @@ const Header = () => {
           </nav>
 
           <div className="header-actions">
-            <button 
-              className="theme-toggle" 
-              onClick={toggleTheme}
-              aria-label={`Trocar para tema ${isDark ? 'claro' : 'escuro'}`}
-              title={`Trocar para tema ${isDark ? 'claro' : 'escuro'}`}
-            >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
             <a href="#contact" className="btn btn-ghost">
               Falar com vendas
             </a>

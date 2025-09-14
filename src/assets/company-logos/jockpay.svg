@@ -1,0 +1,14 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="4" fill="#059669"/>
+  <!-- Logo JockPay com símbolo de pagamento -->
+  <g transform="translate(8, 8)">
+    <!-- Símbolo de cartão/pagamento -->
+    <g fill="#34d399">
+      <rect x="2" y="4" width="16" height="10" rx="2"/>
+      <rect x="4" y="6" width="12" height="2" rx="1"/>
+      <circle cx="14" cy="10" r="1" fill="white"/>
+    </g>
+    <!-- Texto JOCKPAY -->
+    <text x="22" y="16" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">JOCKPAY</text>
+  </g>
+</svg>

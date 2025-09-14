@@ -1,0 +1,14 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="4" fill="#1e40af"/>
+  <!-- Logo Capitani Group com elemento corporativo -->
+  <g transform="translate(8, 8)">
+    <!-- Símbolo corporativo -->
+    <g fill="white">
+      <circle cx="12" cy="12" r="8" stroke="#FFD700" stroke-width="2" fill="none"/>
+      <polygon points="8,8 16,8 12,16" fill="#FFD700"/>
+    </g>
+    <!-- Texto CAPITANI -->
+    <text x="25" y="12" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">CAPITANI</text>
+    <text x="25" y="20" font-family="Arial, sans-serif" font-size="7" fill="#FFD700">GROUP</text>
+  </g>
+</svg>

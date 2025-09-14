@@ -1,0 +1,13 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="4" fill="#E60012"/>
+  <!-- Logo C&A baseado no design real -->
+  <g transform="translate(20, 5)">
+    <!-- C -->
+    <path d="M2 15 C2 8 7 3 14 3 C19 3 23 6 24 10 L20 11 C19 8 17 6 14 6 C9 6 6 9 6 15 C6 21 9 24 14 24 C17 24 19 22 20 19 L24 20 C23 24 19 27 14 27 C7 27 2 22 2 15 Z" fill="white"/>
+    <!-- & symbol -->
+    <ellipse cx="36" cy="15" rx="4" ry="2" fill="white"/>
+    <path d="M32 13 Q36 17 40 13" stroke="white" stroke-width="2" fill="none"/>
+    <!-- A -->
+    <path d="M45 3 L50 3 L60 27 L56 27 L54 21 L51 21 L49 27 L45 27 L50 3 Z M52 18 L53 18 L52.5 9 L52 18 Z" fill="white"/>
+  </g>
+</svg>

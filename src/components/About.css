@@ -4,11 +4,14 @@
 }
 
 .about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  display: flex;
+  justify-content: center;
   margin-bottom: 120px;
+}
+
+.about-text {
+  max-width: 800px;
+  text-align: center;
 }
 
 .about-title {
@@ -32,6 +35,7 @@
   flex-direction: column;
   gap: 16px;
   margin-bottom: 40px;
+  align-items: flex-start;
 }
 
 .feature-item {
@@ -212,19 +216,9 @@
 }
 
 @media (max-width: 768px) {
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: 60px;
-    text-align: center;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .stat-card {
-    padding: 24px 16px;
+  .about-text {
+    max-width: 100%;
+    padding: 0 20px;
   }
 
   .values-grid {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Linkedin, Github, Instagram, ArrowRight } from 'lucide-react';
 import './Footer.css';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
@@ -13,9 +14,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section footer-main">
             <div className="footer-logo">
-              <div className="logo-icon">
-                <div className="logo-shape"></div>
-              </div>
+              <img src={logo} alt="JockSoft" className="footer-logo-image" />
               <span className="logo-text">JockSoft</span>
             </div>
             <p className="footer-description">
@@ -50,7 +49,7 @@ const Footer = () => {
             <h4 className="footer-title">Empresa</h4>
             <ul className="footer-links">
               <li><a href="#about">Sobre Nós</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#portfolio">Cases</a></li>
               <li><a href="#contact">Contato</a></li>
               <li><a href="#">Blog</a></li>
               <li><a href="#">Carreiras</a></li>

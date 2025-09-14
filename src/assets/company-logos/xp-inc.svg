@@ -1,0 +1,16 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="4" fill="#1E1E1E"/>
+  <!-- Logo XP baseado no design real -->
+  <g transform="translate(25, 6)">
+    <!-- X minimalista -->
+    <g fill="#FFFF00">
+      <rect x="0" y="12" width="18" height="4" rx="2" transform="rotate(45 9 14)"/>
+      <rect x="0" y="12" width="18" height="4" rx="2" transform="rotate(-45 9 14)"/>
+    </g>
+    <!-- P -->
+    <g fill="#FFFF00" transform="translate(25, 0)">
+      <rect x="0" y="4" width="4" height="20" rx="2"/>
+      <path d="M4 4 L16 4 C18 4 20 6 20 8 L20 10 C20 12 18 14 16 14 L4 14 Z"/>
+    </g>
+  </g>
+</svg>

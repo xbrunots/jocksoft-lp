@@ -70,7 +70,7 @@
   border: 1px solid rgba(16, 185, 129, 0.3);
   box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
   position: relative;
-  animation: hero-badge-pulse 3s ease-in-out infinite;
+  /* animation: hero-badge-pulse 3s ease-in-out infinite; */
 }
 
 
@@ -80,7 +80,7 @@
   color: #00d8ff;
   border: 1px solid rgba(0, 216, 255, 0.4);
   box-shadow: 0 2px 12px rgba(0, 216, 255, 0.15);
-  animation: hero-badge-pulse-dark 3s ease-in-out infinite;
+  /* animation: hero-badge-pulse-dark 3s ease-in-out infinite; */
 }
 
 @keyframes hero-badge-pulse {
