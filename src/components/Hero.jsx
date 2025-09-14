@@ -14,7 +14,7 @@ const Hero = () => {
         <div className="hero-content">
           <div className="hero-badge">
             <Zap size={16} />
-            <span>Especialistas em Mobile & IA</span>
+            <span>Especialistas em Web, Mobile & IA</span>
           </div>
           
           <h1 className="hero-title">
@@ -24,13 +24,13 @@ const Hero = () => {
           
           <p className="hero-description">
             Somos uma consultoria e fábrica de software especializada em desenvolvimento 
-            mobile e soluções de inteligência artificial. Criamos produtos que impulsionam 
+            mobile, web e soluções de inteligência artificial. Criamos produtos que impulsionam 
             o crescimento do seu negócio.
           </p>
           
           <div className="hero-actions">
             <a href="#contact" className="btn btn-primary btn-large">
-              Começar projeto
+               Calculadora de preço
               <ArrowRight size={18} />
             </a>
             <button className="btn btn-secondary btn-large">
@@ -67,7 +67,7 @@ const Hero = () => {
                   <div className="progress-fill" style={{width: '85%'}}></div>
                 </div>
                 <div className="card-stats">
-                  <span>React Native</span>
+                  <span>Flutter</span>
                   <span>85%</span>
                 </div>
               </div>
@@ -86,7 +86,7 @@ const Hero = () => {
                   <div className="node"></div>
                 </div>
                 <div className="card-stats">
-                  <span>Machine Learning</span>
+                  <span>Python</span>
                   <span>Active</span>
                 </div>
               </div>

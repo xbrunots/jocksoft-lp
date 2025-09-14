@@ -1,5 +1,5 @@
 .about {
-  background: #ffffff;
+  background: var(--bg-primary);
   position: relative;
 }
 
@@ -14,7 +14,7 @@
 .about-title {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
-  color: #111827;
+  color: var(--text-primary);
   margin-bottom: 24px;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -22,7 +22,7 @@
 
 .about-description {
   font-size: 18px;
-  color: #6b7280;
+  color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 32px;
 }
@@ -38,12 +38,12 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #374151;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
 .feature-item svg {
-  color: #10b981;
+  color: var(--accent);
   flex-shrink: 0;
 }
 
@@ -61,8 +61,8 @@
 }
 
 .stat-card {
-  background: rgba(16, 185, 129, 0.05);
-  border: 1px solid rgba(16, 185, 129, 0.1);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-bg);
   border-radius: 16px;
   padding: 32px 24px;
   text-align: center;
@@ -71,14 +71,24 @@
 
 .stat-card:hover {
   transform: translateY(-4px);
-  background: rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.2);
+  background: var(--accent-bg);
+  border-color: var(--accent);
+}
+
+[data-theme="dark"] .stat-card {
+  background: rgba(0, 216, 255, 0.08);
+  border: 1px solid rgba(0, 216, 255, 0.1);
+}
+
+[data-theme="dark"] .stat-card:hover {
+  background: rgba(0, 216, 255, 0.12);
+  border-color: rgba(0, 216, 255, 0.3);
 }
 
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -86,8 +96,15 @@
   line-height: 1;
 }
 
+[data-theme="dark"] .stat-number {
+  background: linear-gradient(135deg, #00d8ff 0%, #9333ea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .stat-label {
-  color: #6b7280;
+  color: var(--text-secondary);
   font-weight: 500;
   font-size: 14px;
 }
@@ -99,7 +116,7 @@
 .values-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #111827;
+  color: var(--text-primary);
   margin-bottom: 48px;
   letter-spacing: -0.02em;
 }
@@ -111,9 +128,9 @@
 }
 
 .value-card {
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--bg-primary);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(229, 231, 235, 0.8);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 32px 24px;
   text-align: center;
@@ -129,9 +146,18 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #10b981, #3b82f6);
+  background: linear-gradient(90deg, var(--accent), #3b82f6);
   transform: scaleX(0);
   transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .value-card {
+  background: rgba(22, 27, 34, 0.8);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .value-card::before {
+  background: linear-gradient(90deg, #00d8ff, #9333ea);
 }
 
 .value-card:hover::before {
@@ -140,25 +166,35 @@
 
 .value-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border-color: rgba(16, 185, 129, 0.2);
+  box-shadow: 0 20px 40px var(--shadow-lg);
+}
+
+[data-theme="dark"] .value-card:hover {
+  box-shadow: 0 20px 40px rgba(1, 4, 9, 0.4);
 }
 
 .value-icon {
   width: 48px;
   height: 48px;
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(16, 185, 129, 0.15);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #10b981;
+  color: #059669;
   margin: 0 auto 20px;
   transition: all 0.3s ease;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+[data-theme="dark"] .value-icon {
+  background: rgba(0, 216, 255, 0.12);
+  color: #00d8ff;
+  border: 1px solid rgba(0, 216, 255, 0.3);
 }
 
 .value-card:hover .value-icon {
-  background: #10b981;
+  background: var(--accent);
   color: white;
   transform: scale(1.05);
 }
@@ -166,12 +202,12 @@
 .value-title {
   font-size: 18px;
   font-weight: 600;
-  color: #111827;
+  color: var(--text-primary);
   margin-bottom: 12px;
 }
 
 .value-description {
-  color: #6b7280;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 

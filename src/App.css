@@ -50,43 +50,64 @@ html {
 }
 
 .btn-primary {
-  background: #10b981;
+  background: var(--accent);
   color: white;
-  border: 1px solid #10b981;
+  border: 1px solid var(--accent);
 }
 
 .btn-primary:hover {
-  background: #059669;
-  border-color: #059669;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
   transform: translateY(-1px);
+}
+
+[data-theme="dark"] .btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, rgba(0, 216, 255, 0.8) 100%);
+  border: 1px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 216, 255, 0.15);
+  color: #0d1117;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent) 100%);
+  box-shadow: 0 6px 20px rgba(0, 216, 255, 0.25);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #374151;
-  border: 1px solid #d1d5db;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
 }
 
 .btn-secondary:hover {
-  background: #f9fafb;
-  border-color: #9ca3af;
+  background: var(--bg-secondary);
+  border-color: var(--border-secondary);
 }
 
 .btn-ghost {
   background: transparent;
-  color: #6b7280;
+  color: var(--text-secondary);
   border: none;
   padding: 8px 16px;
 }
 
 .btn-ghost:hover {
-  background: #f3f4f6;
-  color: #374151;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
 }
 
 /* Typography */
 .text-gradient {
-  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] .text-gradient {
+  background: linear-gradient(135deg, #00d8ff 0%, #9333ea 50%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

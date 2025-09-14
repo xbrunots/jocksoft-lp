@@ -8,21 +8,21 @@ const Services = () => {
       icon: <Smartphone size={24} />,
       title: 'Desenvolvimento Mobile',
       description: 'Apps nativos e híbridos para iOS e Android com as melhores tecnologias do mercado.',
-      features: ['React Native', 'Flutter', 'iOS & Android', 'UI/UX Design'],
+      features: ['Flutter', 'iOS & Android', 'UI/UX Design'],
       color: 'emerald'
     },
     {
       icon: <Brain size={24} />,
       title: 'Inteligência Artificial',
       description: 'Soluções de IA e Machine Learning para automatizar processos e gerar insights.',
-      features: ['Machine Learning', 'Deep Learning', 'NLP', 'Computer Vision'],
+      features: ['Machine Learning','Agentes' ,'MCP' ,'Deep Learning', 'NLP', 'Computer Vision'],
       color: 'blue'
     },
     {
       icon: <Globe size={24} />,
       title: 'Desenvolvimento Web',
       description: 'Aplicações web modernas, rápidas e responsivas com tecnologias de ponta.',
-      features: ['React', 'Next.js', 'Node.js', 'TypeScript'],
+      features: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Flutter Web'],
       color: 'purple'
     },
     {

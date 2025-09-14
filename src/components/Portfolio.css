@@ -1,5 +1,5 @@
 .portfolio {
-  background: #fafafa;
+  background: var(--bg-secondary);
   position: relative;
 }
 
@@ -11,9 +11,10 @@
   right: 0;
   bottom: 0;
   background-image: 
-    linear-gradient(rgba(59, 130, 246, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.02) 1px, transparent 1px);
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 60px 60px;
+  opacity: 0.08;
 }
 
 .portfolio-filters {
@@ -28,10 +29,10 @@
 
 .filter-btn {
   padding: 12px 24px;
-  border: 1px solid #d1d5db;
-  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
   backdrop-filter: blur(12px);
-  color: #6b7280;
+  color: var(--text-secondary);
   border-radius: 24px;
   font-weight: 500;
   font-size: 14px;
@@ -40,14 +41,25 @@
 }
 
 .filter-btn:hover {
-  border-color: #10b981;
-  color: #059669;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .filter-btn.active {
-  background: #10b981;
+  background: var(--accent);
   color: white;
-  border-color: #10b981;
+  border-color: var(--accent);
+}
+
+[data-theme="dark"] .filter-btn {
+  background: rgba(22, 27, 34, 0.8);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .filter-btn.active {
+  background: var(--accent);
+  color: #0d1117;
+  box-shadow: 0 0 15px rgba(0, 216, 255, 0.3);
 }
 
 .portfolio-grid {
@@ -59,19 +71,30 @@
 }
 
 .portfolio-card {
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--bg-primary);
   backdrop-filter: blur(12px);
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(229, 231, 235, 0.8);
+  border: 1px solid var(--border);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .portfolio-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-  border-color: rgba(16, 185, 129, 0.2);
+  box-shadow: 0 25px 50px var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+[data-theme="dark"] .portfolio-card {
+  background: rgba(22, 27, 34, 0.8);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .portfolio-card:hover {
+  box-shadow: 0 25px 50px rgba(1, 4, 9, 0.6), 
+              0 0 0 1px rgba(0, 216, 255, 0.1);
+  border-color: rgba(0, 216, 255, 0.3);
 }
 
 .portfolio-image {
@@ -103,6 +126,10 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] .portfolio-overlay {
+  background: rgba(0, 216, 255, 0.85);
 }
 
 .portfolio-card:hover .portfolio-overlay {
@@ -149,7 +176,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #10b981;
+  color: var(--accent);
   font-weight: 500;
   font-size: 14px;
 }
@@ -157,12 +184,12 @@
 .portfolio-title {
   font-size: 20px;
   font-weight: 600;
-  color: #111827;
+  color: var(--text-primary);
   margin-bottom: 12px;
 }
 
 .portfolio-description {
-  color: #6b7280;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 24px;
 }
@@ -172,8 +199,8 @@
   gap: 24px;
   margin-bottom: 24px;
   padding: 16px 0;
-  border-top: 1px solid #f3f4f6;
-  border-bottom: 1px solid #f3f4f6;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .metric {
@@ -185,13 +212,13 @@
   display: block;
   font-size: 18px;
   font-weight: 700;
-  color: #111827;
+  color: var(--text-primary);
   margin-bottom: 4px;
 }
 
 .metric-label {
   font-size: 12px;
-  color: #6b7280;
+  color: var(--text-secondary);
   text-transform: capitalize;
 }
 
@@ -203,12 +230,19 @@
 }
 
 .tech-tag {
-  background: #f3f4f6;
-  color: #6b7280;
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
   padding: 6px 12px;
   border-radius: 12px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+[data-theme="dark"] .tech-tag {
+  background: rgba(0, 216, 255, 0.08);
+  color: #00c4e6;
+  border: 1px solid rgba(0, 216, 255, 0.2);
 }
 
 .portfolio-action {

@@ -27,9 +27,9 @@ const About = () => {
   ];
 
   const achievements = [
-    { number: '5+', label: 'Anos de Experiência' },
+    { number: '15+', label: 'Anos de Experiência' },
     { number: '100+', label: 'Projetos Entregues' },
-    { number: '50+', label: 'Clientes Satisfeitos' },
+    { number: 'Imediato', label: 'Retorno' },
     { number: '99%', label: 'Taxa de Sucesso' }
   ];
 
@@ -49,7 +49,7 @@ const About = () => {
             
             <p className="about-description">
               Somos uma consultoria e fábrica de software especializada em desenvolvimento 
-              mobile e soluções de inteligência artificial. Com anos de experiência no 
+              mobile, web e soluções de inteligência artificial. Com anos de experiência no 
               mercado, transformamos ideias em produtos digitais que geram resultados reais.
             </p>
             

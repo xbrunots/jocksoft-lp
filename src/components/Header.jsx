@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme, isDark } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,11 +41,19 @@ const Header = () => {
           </nav>
 
           <div className="header-actions">
+            <button 
+              className="theme-toggle" 
+              onClick={toggleTheme}
+              aria-label={`Trocar para tema ${isDark ? 'claro' : 'escuro'}`}
+              title={`Trocar para tema ${isDark ? 'claro' : 'escuro'}`}
+            >
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
             <a href="#contact" className="btn btn-ghost">
               Falar com vendas
             </a>
             <a href="#contact" className="btn btn-primary">
-              Começar projeto
+              Calculadora de preço
               <ArrowRight size={16} />
             </a>
           </div>
