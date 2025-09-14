@@ -26,12 +26,7 @@ const About = () => {
     }
   ];
 
-  const achievements = [
-    { number: '15+', label: 'Anos de Experiência' },
-    { number: '100+', label: 'Projetos Entregues' },
-    { number: 'Imediato', label: 'Retorno' },
-    { number: '99%', label: 'Taxa de Sucesso' }
-  ];
+  // Removido: const achievements = [];
 
   return (
     <section id="about" className="about section">
@@ -48,7 +43,7 @@ const About = () => {
             </h2>
             
             <p className="about-description">
-              Somos uma consultoria e fábrica de software especializada em desenvolvimento 
+              Somos uma consultoria e software house especializada em desenvolvimento 
               mobile, web e soluções de inteligência artificial. Com anos de experiência no 
               mercado, transformamos ideias em produtos digitais que geram resultados reais.
             </p>
@@ -76,16 +71,7 @@ const About = () => {
             </div>
           </div>
           
-          <div className="about-visual">
-            <div className="stats-grid">
-              {achievements.map((achievement, index) => (
-                <div key={index} className="stat-card">
-                  <div className="stat-number">{achievement.number}</div>
-                  <div className="stat-label">{achievement.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+
         </div>
         
         <div className="values-section">

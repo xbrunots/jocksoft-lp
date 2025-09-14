@@ -64,10 +64,30 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
   position: relative;
   z-index: 2;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* Para tablets e desktop, definir 3 colunas */
+@media (min-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+  }
+}
+
+/* Para mobile, manter 1 coluna */
+@media (max-width: 899px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
 }
 
 .service-card {
@@ -80,6 +100,8 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  width: 100%;
+  max-width: 380px;
 }
 
 .service-card::before {
@@ -140,6 +162,13 @@
   --accent-color: #6366f1;
 }
 
+.service-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
 .service-icon {
   width: 48px;
   height: 48px;
@@ -149,9 +178,10 @@
   align-items: center;
   justify-content: center;
   color: var(--accent-color);
-  margin-bottom: 20px;
   transition: all 0.3s ease;
   border: 1px solid rgba(16, 185, 129, 0.2);
+  padding: 12px;
+  flex-shrink: 0;
 }
 
 [data-theme="dark"] .service-icon {
@@ -162,19 +192,39 @@
 .service-card:hover .service-icon {
   background: var(--accent-color);
   color: white;
-  transform: scale(1.05);
+  animation: pulse 2s infinite;
+}
+
+/* Ícone do Venture Builder com cor azul e animação */
+.service-card.service-red .service-icon {
+  background: rgba(0, 216, 255, 0.15);
+  color: #00d8ff;
+  border: 1px solid rgba(0, 216, 255, 0.3);
+}
+
+.service-card.service-red:hover .service-icon {
+  background: #00d8ff;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 .service-title {
   font-size: 20px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 12px;
+  margin: 0;
+  flex: 1;
 }
 
 .service-description {
   color: var(--text-secondary);
-  margin-bottom: 20px;
+  margin-bottom: 0;
   line-height: 1.6;
 }
 
@@ -219,6 +269,155 @@
 
 .service-card:hover .service-action svg {
   transform: translateX(4px);
+}
+
+/* Card especial com botão */
+.service-add-button {
+  background: transparent !important;
+  border: 2px dashed var(--border) !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.service-add-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.service-add-button:hover {
+  border-color: var(--accent-color) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px var(--shadow-lg);
+}
+
+.service-add-button:hover::before {
+  opacity: 0.5;
+  background-image: 
+    linear-gradient(var(--accent-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--accent-color) 1px, transparent 1px);
+}
+
+[data-theme="dark"] .service-add-button:hover {
+  border-color: #00d8ff !important;
+}
+
+[data-theme="dark"] .service-add-button:hover::before {
+  background-image: 
+    linear-gradient(#00d8ff 1px, transparent 1px),
+    linear-gradient(90deg, #00d8ff 1px, transparent 1px);
+}
+
+.service-add-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+.service-add-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  border: 2px dashed var(--accent-color);
+}
+
+[data-theme="dark"] .service-add-icon {
+  background: rgba(0, 216, 255, 0.1);
+  color: #00d8ff;
+  border-color: #00d8ff;
+}
+
+.service-add-button:hover .service-add-icon {
+  background: var(--accent-color);
+  color: white;
+  border-style: solid;
+  transform: rotate(90deg) scale(1.1);
+}
+
+[data-theme="dark"] .service-add-button:hover .service-add-icon {
+  background: #00d8ff;
+}
+
+.service-add-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.service-add-description {
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.service-add-btn {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .service-add-btn {
+  background: #00d8ff;
+}
+
+.service-add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="dark"] .service-add-btn:hover {
+  box-shadow: 0 8px 20px rgba(0, 216, 255, 0.3);
+}
+
+.service-add-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.service-add-btn:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 @media (max-width: 768px) {

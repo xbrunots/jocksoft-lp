@@ -1,8 +1,19 @@
-import React from 'react';
-import { ArrowRight, Play, Smartphone, Brain, Zap } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ArrowRight, Play, Smartphone, Brain, Zap, Users } from 'lucide-react';
 import './Hero.css';
 
 const Hero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Ativar animações após um pequeno delay
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section id="home" className="hero">
       <div className="hero-background">
@@ -11,53 +22,34 @@ const Hero = () => {
       </div>
       
       <div className="container">
-        <div className="hero-content">
-          <div className="hero-badge">
+        <div className={`hero-content ${isVisible ? 'hero-content-visible' : ''}`}>
+          <div className="hero-badge" style={{ '--delay': '0.2s' }}>
             <Zap size={16} />
-            <span>Especialistas em Web, Mobile & IA</span>
+            <span>+15 anos no mercado</span>
           </div>
           
-          <h1 className="hero-title">
-            Transformamos suas <span className="text-gradient">ideias</span> em 
-            <br />produtos digitais <span className="text-gradient">inovadores</span>
+          <h1 className="hero-title" style={{ '--delay': '0.4s' }}>
+            Especialistas em <span className="text-gradient">Web</span>
+            <br /><span className="text-gradient">Mobile</span> e IA
           </h1>
           
-          <p className="hero-description">
-            Somos uma consultoria e fábrica de software especializada em desenvolvimento 
+          <p className="hero-description" style={{ '--delay': '0.6s' }}>
+            Somos uma consultoria e software house especializada em desenvolvimento 
             mobile, web e soluções de inteligência artificial. Criamos produtos que impulsionam 
             o crescimento do seu negócio.
           </p>
           
-          <div className="hero-actions">
+          <div className="hero-actions" style={{ '--delay': '0.8s' }}>
             <a href="#contact" className="btn btn-primary btn-large">
-               Calculadora de preço
+               Calculadora de projeto
               <ArrowRight size={18} />
             </a>
-            <button className="btn btn-secondary btn-large">
-              <Play size={18} />
-              Ver demonstração
-            </button>
-          </div>
-          
-          <div className="hero-stats">
-            <div className="stat">
-              <div className="stat-number">50+</div>
-              <div className="stat-label">Apps Mobile</div>
-            </div>
-            <div className="stat">
-              <div className="stat-number">30+</div>
-              <div className="stat-label">Projetos IA</div>
-            </div>
-            <div className="stat">
-              <div className="stat-number">100+</div>
-              <div className="stat-label">Clientes</div>
-            </div>
           </div>
         </div>
         
-        <div className="hero-visual">
+        <div className={`hero-visual ${isVisible ? 'hero-visual-visible' : ''}`} style={{ '--delay': '1.8s' }}>
           <div className="hero-cards">
-            <div className="hero-card card-mobile">
+            <div className={`hero-card card-mobile ${isVisible ? 'card-visible' : ''}`} style={{ '--delay': '2.0s' }}>
               <div className="card-header">
                 <Smartphone size={20} />
                 <span>Mobile Development</span>
@@ -73,7 +65,7 @@ const Hero = () => {
               </div>
             </div>
             
-            <div className="hero-card card-ai">
+            <div className={`hero-card card-ai ${isVisible ? 'card-visible' : ''}`} style={{ '--delay': '2.2s' }}>
               <div className="card-header">
                 <Brain size={20} />
                 <span>AI Solutions</span>
@@ -88,6 +80,25 @@ const Hero = () => {
                 <div className="card-stats">
                   <span>Python</span>
                   <span>Active</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className={`hero-card card-squad ${isVisible ? 'card-visible' : ''}`} style={{ '--delay': '2.4s' }}>
+              <div className="card-header">
+                <Users size={20} />
+                <span>Squad as a Service</span>
+              </div>
+              <div className="card-content">
+                <div className="team-members">
+                  <div className="member active"></div>
+                  <div className="member active"></div>
+                  <div className="member"></div>
+                  <div className="member active"></div>
+                </div>
+                <div className="card-stats">
+                  <span>Team</span>
+                  <span>Available</span>
                 </div>
               </div>
             </div>

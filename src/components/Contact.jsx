@@ -11,21 +11,106 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+
+  // Validação de campos
+  const validateField = (name, value) => {
+    const newErrors = { ...errors };
+    
+    switch (name) {
+      case 'name':
+        if (!value.trim()) {
+          newErrors.name = 'Nome é obrigatório';
+        } else if (value.trim().length < 2) {
+          newErrors.name = 'Nome deve ter pelo menos 2 caracteres';
+        } else {
+          delete newErrors.name;
+        }
+        break;
+      
+      case 'email':
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!value.trim()) {
+          newErrors.email = 'Email é obrigatório';
+        } else if (!emailRegex.test(value)) {
+          newErrors.email = 'Email deve ter um formato válido';
+        } else {
+          delete newErrors.email;
+        }
+        break;
+      
+      case 'message':
+        if (!value.trim()) {
+          newErrors.message = 'Mensagem é obrigatória';
+        } else if (value.trim().length < 10) {
+          newErrors.message = 'Mensagem deve ter pelo menos 10 caracteres';
+        } else {
+          delete newErrors.message;
+        }
+        break;
+        
+      default:
+        break;
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    
+    // Validar campo se já foi tocado
+    if (touched[name]) {
+      validateField(name, value);
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    setTouched({
+      ...touched,
+      [name]: true
+    });
+    validateField(name, value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTimeout(() => {
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', company: '', service: '', message: '' });
-      setTimeout(() => setIsSubmitted(false), 3000);
-    }, 1000);
+    
+    // Marcar todos os campos como tocados
+    const allTouched = {
+      name: true,
+      email: true,
+      message: true
+    };
+    setTouched(allTouched);
+    
+    // Validar todos os campos obrigatórios
+    const isNameValid = validateField('name', formData.name);
+    const isEmailValid = validateField('email', formData.email);
+    const isMessageValid = validateField('message', formData.message);
+    
+    if (isNameValid && isEmailValid && isMessageValid) {
+      setIsSubmitting(true);
+      
+      // Simular envio do formulário
+      setTimeout(() => {
+        setIsSubmitted(true);
+        setIsSubmitting(false);
+        setFormData({ name: '', email: '', company: '', service: '', message: '' });
+        setTouched({});
+        setErrors({});
+        
+        setTimeout(() => setIsSubmitted(false), 3000);
+      }, 1500);
+    }
   };
 
   const services = [
@@ -136,9 +221,18 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     required
                     placeholder="Seu nome completo"
+                    className={errors.name ? 'error' : ''}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? 'name-error' : undefined}
                   />
+                  {errors.name && (
+                    <span id="name-error" className="error-message" role="alert">
+                      {errors.name}
+                    </span>
+                  )}
                 </div>
 
                 <div className="form-group">
@@ -149,9 +243,18 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     required
                     placeholder="seu@email.com"
+                    className={errors.email ? 'error' : ''}
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
                   />
+                  {errors.email && (
+                    <span id="email-error" className="error-message" role="alert">
+                      {errors.email}
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -191,17 +294,35 @@ const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   required
                   rows="5"
                   placeholder="Conte-nos sobre seu projeto, objetivos e como podemos ajudar..."
+                  className={errors.message ? 'error' : ''}
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? 'message-error' : undefined}
                 ></textarea>
+                {errors.message && (
+                  <span id="message-error" className="error-message" role="alert">
+                    {errors.message}
+                  </span>
+                )}
               </div>
 
-              <button type="submit" className="btn btn-primary submit-btn">
+              <button 
+                type="submit" 
+                className="btn btn-primary submit-btn"
+                disabled={isSubmitting || isSubmitted}
+              >
                 {isSubmitted ? (
                   <>
                     <CheckCircle size={20} />
                     Mensagem Enviada!
+                  </>
+                ) : isSubmitting ? (
+                  <>
+                    <div className="spinner"></div>
+                    Enviando...
                   </>
                 ) : (
                   <>

@@ -120,12 +120,15 @@
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 24px;
   color: var(--text-primary);
   letter-spacing: -0.02em;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-description {
@@ -152,29 +155,7 @@
   font-weight: 500;
 }
 
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  margin-bottom: 80px;
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat-number {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-}
-
-.stat-label {
-  font-size: 14px;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
+/* Removido: estilos hero-stats */
 
 .hero-visual {
   position: relative;
@@ -182,6 +163,7 @@
   display: flex;
   justify-content: center;
   margin-top: 40px;
+  margin-bottom: 24px;
 }
 
 .hero-cards {
@@ -197,12 +179,8 @@
   border-radius: 12px;
   padding: 20px;
   width: 240px;
-  transition: all 0.3s ease;
-}
-
-.hero-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px var(--shadow-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
 [data-theme="dark"] .hero-card {
@@ -210,16 +188,29 @@
   border: 1px solid var(--border);
 }
 
+/* Hover effects para cada card específico */
+.hero-card.card-mobile:hover {
+  transform: rotate(-2deg) translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 20px 40px var(--shadow-lg) !important;
+}
+
+.hero-card.card-ai:hover {
+  transform: rotate(2deg) translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 20px 40px var(--shadow-lg) !important;
+}
+
+.hero-card.card-squad:hover {
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 20px 40px var(--shadow-lg) !important;
+}
+
+/* Debug: mudança de cor no hover para confirmar que está funcionando */
+.hero-card:hover {
+  border-color: var(--accent) !important;
+}
+
 [data-theme="dark"] .hero-card:hover {
   box-shadow: 0 20px 40px rgba(1, 4, 9, 0.4);
-}
-
-.card-mobile {
-  transform: rotate(-2deg);
-}
-
-.card-ai {
-  transform: rotate(2deg);
 }
 
 .card-header {
@@ -275,6 +266,30 @@
   box-shadow: 0 0 12px var(--accent-bg);
 }
 
+.team-members {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.member {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  transition: all 0.3s ease;
+}
+
+.member.active {
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-bg);
+}
+
+[data-theme="dark"] .member.active {
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(0, 216, 255, 0.3);
+}
+
 .card-stats {
   display: flex;
   justify-content: space-between;
@@ -294,10 +309,7 @@
     align-items: center;
   }
 
-  .hero-stats {
-    gap: 32px;
-    flex-wrap: wrap;
-  }
+  /* Removido: hero-stats responsive */
 
   .hero-cards {
     flex-direction: column;
@@ -312,4 +324,81 @@
   .hero-visual {
     margin-top: 60px;
   }
+}
+
+/* Animações de entrada suaves */
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--delay, 0s);
+}
+
+.hero-content-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-visual {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--delay, 0s);
+}
+
+.hero-content-visible ~ .hero-visual {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-card {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--delay, 0s);
+}
+
+/* Separar transições para hover */
+.hero-card.card-visible {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s ease;
+}
+
+.card-mobile {
+  transform: rotate(-2deg) translateY(20px) scale(0.95);
+}
+
+.card-ai {
+  transform: rotate(2deg) translateY(20px) scale(0.95);
+}
+
+.card-squad {
+  transform: translateY(20px) scale(0.95);
+}
+
+/* Estados visíveis dos cards */
+.card-mobile.card-visible {
+  opacity: 1;
+  transform: rotate(-2deg) translateY(0) scale(1);
+}
+
+.card-ai.card-visible {
+  opacity: 1;
+  transform: rotate(2deg) translateY(0) scale(1);
+}
+
+.card-squad.card-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Removido: estilos de animação .stat */
+
+/* Melhorar performance das animações */
+.hero-card,
+.hero-badge,
+.text-gradient {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }

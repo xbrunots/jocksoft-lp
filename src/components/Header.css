@@ -88,6 +88,27 @@
   color: var(--text-primary);
 }
 
+.nav a.active {
+  color: var(--accent);
+  position: relative;
+}
+
+.nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+[data-theme="dark"] .nav a.active::after {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(0, 216, 255, 0.3);
+}
+
 .header-actions {
   display: flex;
   align-items: center;
