@@ -1,13 +1,17 @@
 {
-  "name": "vite-react-starter",
+  "name": "jocksoft-landpage",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:dev": "docker-compose up jocksoft-dev",
+    "docker:prod": "docker-compose --profile production up jocksoft-prod",
+    "docker:build": "docker build --target production -t jocksoft-landpage:prod .",
+    "docker:build-dev": "docker build --target development -t jocksoft-landpage:dev ."
   },
   "dependencies": {
     "lucide-react": "^0.536.0",

@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # Serviço para desenvolvimento
+  jocksoft-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    container_name: jocksoft-landpage-dev
+    restart: unless-stopped
+
+  # Serviço para produção
+  jocksoft-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    container_name: jocksoft-landpage-prod
+    restart: unless-stopped
+    profiles:
+      - production
+
+networks:
+  default:
+    name: jocksoft-network
