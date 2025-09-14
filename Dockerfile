@@ -2,7 +2,7 @@
 # Multi-stage build para otimização de produção
 
 # Stage 1: Build
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 # Definir diretório de trabalho
 WORKDIR /app
@@ -35,7 +35,7 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
 # Stage para desenvolvimento (opcional)
-FROM node:18-alpine AS development
+FROM node:20-alpine AS development
 
 WORKDIR /app
 
@@ -52,4 +52,4 @@ COPY . .
 EXPOSE 5173
 
 # Comando para modo de desenvolvimento
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+CMD ["npm", "run", "dev:docker"]
