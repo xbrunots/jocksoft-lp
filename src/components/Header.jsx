@@ -124,7 +124,7 @@ const Header = () => {
             <a href="#contact" className="btn btn-ghost">
               Falar com vendas
             </a>
-            <a href="#contact" className="btn btn-primary">
+            <a href="https://budget.jocksoft.com/" className="btn btn-primary">
               Calculadora de projeto
               <ArrowRight size={16} />
             </a>

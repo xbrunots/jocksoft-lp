@@ -40,7 +40,7 @@ const Hero = () => {
           </p>
           
           <div className="hero-actions" style={{ '--delay': '0.8s' }}>
-            <a href="#contact" className="btn btn-primary btn-large">
+            <a href="https://budget.jocksoft.com/"  className="btn btn-primary btn-large">
                Calculadora de projeto
               <ArrowRight size={18} />
             </a>
